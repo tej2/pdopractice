@@ -10,6 +10,9 @@ $username = "tej2";
 $password = "sCUGMmHv";
 $dbname = "tej2";
 
+$html = '<html>';
+$html .='<body>';
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -17,16 +20,13 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully<br>";
 
-}
-
-
 //Part 2
 
 $result = $conn->query("SELECT * FROM accounts where id<6");
 
 //Part 3
 
-if ($result->number_rows > 0) {
+if ($result->num_rows > 0) {
 	$html .='<table><tr>';
 	$html .='<th>ID</th>';
 	$html .='<th>Email</th>';
@@ -51,7 +51,8 @@ while ($row = $result->fetch_assoc() ) {
 	}
 	$html .='</table>';
 	}
-
+	$html .='</body>';
+	$html .='</html>';
 print_r($html);
 
 $conn->close();
