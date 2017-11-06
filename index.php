@@ -5,11 +5,12 @@ error_reporting(E_ALL);
 
 
 //Part 1
-$servername = "mysql:dbname=tej2;hostsql.njit.edu";
+$servername = "sql1.njit.edu";
 $username = "tej2";
 $password = "sCUGMmHv";
+$dbname = "tej2";
 
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
 	die ("Connection failed: " . $conn->connect_error);
